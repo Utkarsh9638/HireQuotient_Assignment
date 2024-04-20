@@ -25,7 +25,7 @@ function Row({ bonds }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             BOND {<span>({bonds.length})</span>}
           </IconButton>
         </TableCell>
@@ -50,10 +50,10 @@ function Row({ bonds }) {
                     <TableRow key={index}>
                       <TableCell>{bond.name}</TableCell>
                       <TableCell>{bond.ticker}</TableCell>
-                      <TableCell>{bond.avg_price}</TableCell>
-                      <TableCell>{bond.market_price}</TableCell>
-                      <TableCell>{bond.latest_chg_pct}</TableCell>
-                      <TableCell>{bond.market_value_ccy}</TableCell>
+                      <TableCell style={{ color: bond.avg_price < 0 ? 'red' : 'inherit' }}>{bond.avg_price}</TableCell>
+                      <TableCell style={{ color: bond.market_price < 0 ? 'red' : 'inherit' }}>{bond.market_price}</TableCell>
+                      <TableCell style={{ color: bond.latest_chg_pct < 0 ? 'red' : 'inherit' }}>{bond.latest_chg_pct}</TableCell>
+                      <TableCell style={{ color: bond.market_value_ccy < 0 ? 'red' : 'inherit' }}>{bond.market_value_ccy}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

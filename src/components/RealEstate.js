@@ -25,7 +25,7 @@ function Row({ realestate }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             REAL ESTATE {<span>({realestate.length})</span>}
           </IconButton>
         </TableCell>

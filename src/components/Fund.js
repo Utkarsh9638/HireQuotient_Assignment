@@ -25,7 +25,7 @@ function Row({ fund }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             FUND {<span>({fund.length})</span>}
           </IconButton>
         </TableCell>
@@ -50,10 +50,10 @@ function Row({ fund }) {
                     <TableRow key={index}>
                       <TableCell>{fund.name}</TableCell>
                       <TableCell>{fund.ticker}</TableCell>
-                      <TableCell>{fund.avg_price}</TableCell>
-                      <TableCell>{fund.market_price}</TableCell>
-                      <TableCell>{fund.latest_chg_pct}</TableCell>
-                      <TableCell>{fund.market_value_ccy}</TableCell>
+                      <TableCell style={{ color: fund.avg_price < 0 ? 'red' : 'inherit' }}>{fund.avg_price}</TableCell>
+                      <TableCell style={{ color: fund.market_price < 0 ? 'red' : 'inherit' }}>{fund.market_price}</TableCell>
+                      <TableCell style={{ color: fund.latest_chg_pct < 0 ? 'red' : 'inherit' }}>{fund.latest_chg_pct}</TableCell>
+                      <TableCell style={{ color: fund.market_value_ccy < 0 ? 'red' : 'inherit' }}>{fund.market_value_ccy}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

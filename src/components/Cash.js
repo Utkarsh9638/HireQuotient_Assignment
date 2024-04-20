@@ -25,7 +25,7 @@ function Row({ cash }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             CASH {<span>({cash.length})</span>}
           </IconButton>
         </TableCell>
@@ -50,10 +50,10 @@ function Row({ cash }) {
                     <TableRow key={index}>
                       <TableCell>{cash.name}</TableCell>
                       <TableCell>{cash.ticker}</TableCell>
-                      <TableCell>{cash.avg_price}</TableCell>
-                      <TableCell>{cash.market_price}</TableCell>
-                      <TableCell>{cash.latest_chg_pct}</TableCell>
-                      <TableCell>{cash.market_value_ccy}</TableCell>
+                      <TableCell style={{ color: cash.avg_price < 0 ? 'red' : 'inherit' }}>{cash.avg_price}</TableCell>
+                      <TableCell style={{ color: cash.market_price < 0 ? 'red' : 'inherit' }}>{cash.market_price}</TableCell>
+                      <TableCell style={{ color: cash.latest_chg_pct < 0 ? 'red' : 'inherit' }}>{cash.latest_chg_pct}</TableCell>
+                      <TableCell style={{ color: cash.market_value_ccy < 0 ? 'red' : 'inherit' }}>{cash.market_value_ccy}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

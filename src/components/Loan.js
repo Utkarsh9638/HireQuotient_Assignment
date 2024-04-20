@@ -25,7 +25,7 @@ function Row({ loans }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             LOAN {<span>({loans.length})</span>}
           </IconButton>
         </TableCell>
@@ -50,10 +50,10 @@ function Row({ loans }) {
                     <TableRow key={index}>
                       <TableCell>{loan.name}</TableCell>
                       <TableCell>{loan.ticker}</TableCell>
-                      <TableCell>{loan.avg_price}</TableCell>
-                      <TableCell>{loan.market_price}</TableCell>
-                      <TableCell>{loan.latest_chg_pct}</TableCell>
-                      <TableCell>{loan.market_value_ccy}</TableCell>
+                      <TableCell style={{ color: loan.avg_price < 0 ? 'red' : 'inherit' }}>{loan.avg_price}</TableCell>
+                      <TableCell style={{ color: loan.market_price < 0 ? 'red' : 'inherit' }}>{loan.market_price}</TableCell>
+                      <TableCell style={{ color: loan.latest_chg_pct < 0 ? 'red' : 'inherit' }}>{loan.latest_chg_pct}</TableCell>
+                      <TableCell style={{ color: loan.market_value_ccy < 0 ? 'red' : 'inherit' }}>{loan.market_value_ccy}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

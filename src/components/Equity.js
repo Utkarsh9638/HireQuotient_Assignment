@@ -25,7 +25,7 @@ function Row({ equity }) {
             size="small"
             onClick={() => setOpen(!open)}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowUpIcon sx={{color: 'Purple'}}/> : <KeyboardArrowDownIcon />}
             EQUITY {<span>({equity.length})</span>}
           </IconButton>
         </TableCell>
@@ -50,10 +50,10 @@ function Row({ equity }) {
                     <TableRow key={index}>
                       <TableCell>{equity.name}</TableCell>
                       <TableCell>{equity.ticker}</TableCell>
-                      <TableCell>{equity.avg_price}</TableCell>
-                      <TableCell>{equity.market_price}</TableCell>
-                      <TableCell>{equity.latest_chg_pct}</TableCell>
-                      <TableCell>{equity.market_value_ccy}</TableCell>
+                      <TableCell style={{ color: equity.avg_price < 0 ? 'red' : 'inherit' }}>{equity.avg_price}</TableCell>
+                      <TableCell style={{ color: equity.market_price < 0 ? 'red' : 'inherit' }}>{equity.market_price}</TableCell>
+                      <TableCell style={{ color: equity.latest_chg_pct < 0 ? 'red' : 'inherit' }}>{equity.latest_chg_pct}</TableCell>
+                      <TableCell style={{ color: equity.market_value_ccy < 0 ? 'red' : 'inherit' }}>{equity.market_value_ccy}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
