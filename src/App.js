@@ -3,6 +3,9 @@ import './App.css';
 import BondTable from './components/Bond';
 import RealEstate from './components/RealEstate';
 import Loan from './components/Loan';
+import Cash from './components/Cash';
+import Fund from './components/Fund';
+import Equity from './components/Equity';
 function App() {
   const [bondData, setBondData] = useState([]);
  const [realestateData, setrealestate] = useState([]);
@@ -54,8 +57,11 @@ function App() {
   return (
     <div>
       <RealEstate arrayofrealestate={realestateData}/> 
+      <Cash arrayofcash={cashData}/>
       <BondTable arrayofbond={bondData}/>
+      <Equity arrayofequity={equityData}/>
       <Loan arrayofloan={loanData}/> 
+      <Fund arrayoffund={fundData}/>      
     </div>
   );
 }
